@@ -22,6 +22,21 @@
 		8523AA8F1EAE7F78001055EF /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8523AA8E1EAE7F78001055EF /* ExtensionDelegate.swift */; };
 		8523AA911EAE7F78001055EF /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8523AA901EAE7F78001055EF /* NotificationController.swift */; };
 		8523AA931EAE7F78001055EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8523AA921EAE7F78001055EF /* Assets.xcassets */; };
+		8524F38F1F2E84E700718D73 /* F53OSCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F3711F2E84E700718D73 /* F53OSCBundle.m */; };
+		8524F3901F2E84E700718D73 /* F53OSCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F3731F2E84E700718D73 /* F53OSCClient.m */; };
+		8524F3911F2E84E700718D73 /* F53OSCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F3761F2E84E700718D73 /* F53OSCMessage.m */; };
+		8524F3921F2E84E700718D73 /* F53OSCPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F3781F2E84E700718D73 /* F53OSCPacket.m */; };
+		8524F3931F2E84E700718D73 /* F53OSCParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F37A1F2E84E700718D73 /* F53OSCParser.m */; };
+		8524F3941F2E84E700718D73 /* F53OSCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F37D1F2E84E700718D73 /* F53OSCServer.m */; };
+		8524F3951F2E84E700718D73 /* F53OSCSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F37F1F2E84E700718D73 /* F53OSCSocket.m */; };
+		8524F3961F2E84E700718D73 /* F53OSCTimeTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F3811F2E84E700718D73 /* F53OSCTimeTag.m */; };
+		8524F3971F2E84E700718D73 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F3831F2E84E700718D73 /* GCDAsyncSocket.m */; };
+		8524F3981F2E84E700718D73 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F3851F2E84E700718D73 /* GCDAsyncUdpSocket.m */; };
+		8524F3991F2E84E700718D73 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8524F3861F2E84E700718D73 /* LICENSE.txt */; };
+		8524F39A1F2E84E700718D73 /* NSData+F53OSCBlob.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F3881F2E84E700718D73 /* NSData+F53OSCBlob.m */; };
+		8524F39B1F2E84E700718D73 /* NSDate+F53OSCTimeTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F38A1F2E84E700718D73 /* NSDate+F53OSCTimeTag.m */; };
+		8524F39C1F2E84E700718D73 /* NSNumber+F53OSCNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F38C1F2E84E700718D73 /* NSNumber+F53OSCNumber.m */; };
+		8524F39D1F2E84E700718D73 /* NSString+F53OSCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F38E1F2E84E700718D73 /* NSString+F53OSCString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +120,39 @@
 		8523AA901EAE7F78001055EF /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		8523AA921EAE7F78001055EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8523AA941EAE7F78001055EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8523AADB1EAE8351001055EF /* WatchO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WatchO-Bridging-Header.h"; sourceTree = "<group>"; };
+		8524F36F1F2E84E700718D73 /* F53OSC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSC.h; path = F53OSC/F53OSC.h; sourceTree = "<group>"; };
+		8524F3701F2E84E700718D73 /* F53OSCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCBundle.h; path = F53OSC/F53OSCBundle.h; sourceTree = "<group>"; };
+		8524F3711F2E84E700718D73 /* F53OSCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCBundle.m; path = F53OSC/F53OSCBundle.m; sourceTree = "<group>"; };
+		8524F3721F2E84E700718D73 /* F53OSCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCClient.h; path = F53OSC/F53OSCClient.h; sourceTree = "<group>"; };
+		8524F3731F2E84E700718D73 /* F53OSCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCClient.m; path = F53OSC/F53OSCClient.m; sourceTree = "<group>"; };
+		8524F3741F2E84E700718D73 /* F53OSCFoundationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCFoundationAdditions.h; path = F53OSC/F53OSCFoundationAdditions.h; sourceTree = "<group>"; };
+		8524F3751F2E84E700718D73 /* F53OSCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCMessage.h; path = F53OSC/F53OSCMessage.h; sourceTree = "<group>"; };
+		8524F3761F2E84E700718D73 /* F53OSCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCMessage.m; path = F53OSC/F53OSCMessage.m; sourceTree = "<group>"; };
+		8524F3771F2E84E700718D73 /* F53OSCPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCPacket.h; path = F53OSC/F53OSCPacket.h; sourceTree = "<group>"; };
+		8524F3781F2E84E700718D73 /* F53OSCPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCPacket.m; path = F53OSC/F53OSCPacket.m; sourceTree = "<group>"; };
+		8524F3791F2E84E700718D73 /* F53OSCParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCParser.h; path = F53OSC/F53OSCParser.h; sourceTree = "<group>"; };
+		8524F37A1F2E84E700718D73 /* F53OSCParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCParser.m; path = F53OSC/F53OSCParser.m; sourceTree = "<group>"; };
+		8524F37B1F2E84E700718D73 /* F53OSCProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCProtocols.h; path = F53OSC/F53OSCProtocols.h; sourceTree = "<group>"; };
+		8524F37C1F2E84E700718D73 /* F53OSCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCServer.h; path = F53OSC/F53OSCServer.h; sourceTree = "<group>"; };
+		8524F37D1F2E84E700718D73 /* F53OSCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCServer.m; path = F53OSC/F53OSCServer.m; sourceTree = "<group>"; };
+		8524F37E1F2E84E700718D73 /* F53OSCSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCSocket.h; path = F53OSC/F53OSCSocket.h; sourceTree = "<group>"; };
+		8524F37F1F2E84E700718D73 /* F53OSCSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCSocket.m; path = F53OSC/F53OSCSocket.m; sourceTree = "<group>"; };
+		8524F3801F2E84E700718D73 /* F53OSCTimeTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = F53OSCTimeTag.h; path = F53OSC/F53OSCTimeTag.h; sourceTree = "<group>"; };
+		8524F3811F2E84E700718D73 /* F53OSCTimeTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = F53OSCTimeTag.m; path = F53OSC/F53OSCTimeTag.m; sourceTree = "<group>"; };
+		8524F3821F2E84E700718D73 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = F53OSC/GCDAsyncSocket.h; sourceTree = "<group>"; };
+		8524F3831F2E84E700718D73 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = F53OSC/GCDAsyncSocket.m; sourceTree = "<group>"; };
+		8524F3841F2E84E700718D73 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = F53OSC/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		8524F3851F2E84E700718D73 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = F53OSC/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		8524F3861F2E84E700718D73 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = F53OSC/LICENSE.txt; sourceTree = "<group>"; };
+		8524F3871F2E84E700718D73 /* NSData+F53OSCBlob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+F53OSCBlob.h"; path = "F53OSC/NSData+F53OSCBlob.h"; sourceTree = "<group>"; };
+		8524F3881F2E84E700718D73 /* NSData+F53OSCBlob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+F53OSCBlob.m"; path = "F53OSC/NSData+F53OSCBlob.m"; sourceTree = "<group>"; };
+		8524F3891F2E84E700718D73 /* NSDate+F53OSCTimeTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+F53OSCTimeTag.h"; path = "F53OSC/NSDate+F53OSCTimeTag.h"; sourceTree = "<group>"; };
+		8524F38A1F2E84E700718D73 /* NSDate+F53OSCTimeTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+F53OSCTimeTag.m"; path = "F53OSC/NSDate+F53OSCTimeTag.m"; sourceTree = "<group>"; };
+		8524F38B1F2E84E700718D73 /* NSNumber+F53OSCNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumber+F53OSCNumber.h"; path = "F53OSC/NSNumber+F53OSCNumber.h"; sourceTree = "<group>"; };
+		8524F38C1F2E84E700718D73 /* NSNumber+F53OSCNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+F53OSCNumber.m"; path = "F53OSC/NSNumber+F53OSCNumber.m"; sourceTree = "<group>"; };
+		8524F38D1F2E84E700718D73 /* NSString+F53OSCString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+F53OSCString.h"; path = "F53OSC/NSString+F53OSCString.h"; sourceTree = "<group>"; };
+		8524F38E1F2E84E700718D73 /* NSString+F53OSCString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+F53OSCString.m"; path = "F53OSC/NSString+F53OSCString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,12 +190,14 @@
 		8523AA451EAE7F78001055EF = {
 			isa = PBXGroup;
 			children = (
+				8524F39E1F2E851800718D73 /* F53OSC */,
 				8523AA501EAE7F78001055EF /* WatchO */,
 				8523AA651EAE7F78001055EF /* WatchOTests */,
 				8523AA701EAE7F78001055EF /* WatchOUITests */,
 				8523AA7A1EAE7F78001055EF /* WatchO WatchKit App */,
 				8523AA891EAE7F78001055EF /* WatchO WatchKit Extension */,
 				8523AA4F1EAE7F78001055EF /* Products */,
+				8523AADB1EAE8351001055EF /* WatchO-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +273,45 @@
 				8523AA8B1EAE7F78001055EF /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8524F39E1F2E851800718D73 /* F53OSC */ = {
+			isa = PBXGroup;
+			children = (
+				8524F36F1F2E84E700718D73 /* F53OSC.h */,
+				8524F3701F2E84E700718D73 /* F53OSCBundle.h */,
+				8524F3711F2E84E700718D73 /* F53OSCBundle.m */,
+				8524F3721F2E84E700718D73 /* F53OSCClient.h */,
+				8524F3731F2E84E700718D73 /* F53OSCClient.m */,
+				8524F3741F2E84E700718D73 /* F53OSCFoundationAdditions.h */,
+				8524F3751F2E84E700718D73 /* F53OSCMessage.h */,
+				8524F3761F2E84E700718D73 /* F53OSCMessage.m */,
+				8524F3771F2E84E700718D73 /* F53OSCPacket.h */,
+				8524F3781F2E84E700718D73 /* F53OSCPacket.m */,
+				8524F3791F2E84E700718D73 /* F53OSCParser.h */,
+				8524F37A1F2E84E700718D73 /* F53OSCParser.m */,
+				8524F37B1F2E84E700718D73 /* F53OSCProtocols.h */,
+				8524F37C1F2E84E700718D73 /* F53OSCServer.h */,
+				8524F37D1F2E84E700718D73 /* F53OSCServer.m */,
+				8524F37E1F2E84E700718D73 /* F53OSCSocket.h */,
+				8524F37F1F2E84E700718D73 /* F53OSCSocket.m */,
+				8524F3801F2E84E700718D73 /* F53OSCTimeTag.h */,
+				8524F3811F2E84E700718D73 /* F53OSCTimeTag.m */,
+				8524F3821F2E84E700718D73 /* GCDAsyncSocket.h */,
+				8524F3831F2E84E700718D73 /* GCDAsyncSocket.m */,
+				8524F3841F2E84E700718D73 /* GCDAsyncUdpSocket.h */,
+				8524F3851F2E84E700718D73 /* GCDAsyncUdpSocket.m */,
+				8524F3861F2E84E700718D73 /* LICENSE.txt */,
+				8524F3871F2E84E700718D73 /* NSData+F53OSCBlob.h */,
+				8524F3881F2E84E700718D73 /* NSData+F53OSCBlob.m */,
+				8524F3891F2E84E700718D73 /* NSDate+F53OSCTimeTag.h */,
+				8524F38A1F2E84E700718D73 /* NSDate+F53OSCTimeTag.m */,
+				8524F38B1F2E84E700718D73 /* NSNumber+F53OSCNumber.h */,
+				8524F38C1F2E84E700718D73 /* NSNumber+F53OSCNumber.m */,
+				8524F38D1F2E84E700718D73 /* NSString+F53OSCString.h */,
+				8524F38E1F2E84E700718D73 /* NSString+F53OSCString.m */,
+			);
+			name = F53OSC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +418,8 @@
 				TargetAttributes = {
 					8523AA4D1EAE7F78001055EF = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = D8BKLXS4Z5;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					8523AA611EAE7F78001055EF = {
@@ -343,10 +434,12 @@
 					};
 					8523AA751EAE7F78001055EF = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = D8BKLXS4Z5;
 						ProvisioningStyle = Automatic;
 					};
 					8523AA841EAE7F78001055EF = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = D8BKLXS4Z5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -378,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8524F3991F2E84E700718D73 /* LICENSE.txt in Resources */,
 				8523AA5C1EAE7F78001055EF /* LaunchScreen.storyboard in Resources */,
 				8523AA591EAE7F78001055EF /* Assets.xcassets in Resources */,
 				8523AA571EAE7F78001055EF /* Main.storyboard in Resources */,
@@ -422,8 +516,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8524F3911F2E84E700718D73 /* F53OSCMessage.m in Sources */,
+				8524F39A1F2E84E700718D73 /* NSData+F53OSCBlob.m in Sources */,
 				8523AA541EAE7F78001055EF /* ViewController.swift in Sources */,
 				8523AA521EAE7F78001055EF /* AppDelegate.swift in Sources */,
+				8524F3941F2E84E700718D73 /* F53OSCServer.m in Sources */,
+				8524F3981F2E84E700718D73 /* GCDAsyncUdpSocket.m in Sources */,
+				8524F38F1F2E84E700718D73 /* F53OSCBundle.m in Sources */,
+				8524F39B1F2E84E700718D73 /* NSDate+F53OSCTimeTag.m in Sources */,
+				8524F3921F2E84E700718D73 /* F53OSCPacket.m in Sources */,
+				8524F39C1F2E84E700718D73 /* NSNumber+F53OSCNumber.m in Sources */,
+				8524F3901F2E84E700718D73 /* F53OSCClient.m in Sources */,
+				8524F3951F2E84E700718D73 /* F53OSCSocket.m in Sources */,
+				8524F3961F2E84E700718D73 /* F53OSCTimeTag.m in Sources */,
+				8524F3971F2E84E700718D73 /* GCDAsyncSocket.m in Sources */,
+				8524F3931F2E84E700718D73 /* F53OSCParser.m in Sources */,
+				8524F39D1F2E84E700718D73 /* NSString+F53OSCString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +713,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = D8BKLXS4Z5;
 				INFOPLIST_FILE = "WatchO WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliverhickmanmusic.WatchO.watchkitapp.watchkitextension;
@@ -613,7 +722,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
 			name = Debug;
 		};
@@ -621,6 +730,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = D8BKLXS4Z5;
 				INFOPLIST_FILE = "WatchO WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliverhickmanmusic.WatchO.watchkitapp.watchkitextension;
@@ -629,7 +739,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
 			name = Release;
 		};
@@ -638,6 +748,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D8BKLXS4Z5;
 				IBSC_MODULE = WatchO_WatchKit_Extension;
 				INFOPLIST_FILE = "WatchO WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliverhickmanmusic.WatchO.watchkitapp;
@@ -646,7 +757,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
 			name = Debug;
 		};
@@ -655,6 +766,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = D8BKLXS4Z5;
 				IBSC_MODULE = WatchO_WatchKit_Extension;
 				INFOPLIST_FILE = "WatchO WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliverhickmanmusic.WatchO.watchkitapp;
@@ -663,7 +775,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
 			};
 			name = Release;
 		};
@@ -671,10 +783,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = D8BKLXS4Z5;
 				INFOPLIST_FILE = WatchO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliverhickmanmusic.WatchO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WatchO-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -683,10 +799,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = D8BKLXS4Z5;
 				INFOPLIST_FILE = WatchO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliverhickmanmusic.WatchO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WatchO-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -764,6 +883,7 @@
 				8523AA991EAE7F78001055EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8523AA9B1EAE7F78001055EF /* Build configuration list for PBXNativeTarget "WatchO WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -772,6 +892,7 @@
 				8523AA9D1EAE7F78001055EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8523AA9F1EAE7F78001055EF /* Build configuration list for PBXNativeTarget "WatchO" */ = {
 			isa = XCConfigurationList;
@@ -780,6 +901,7 @@
 				8523AAA11EAE7F78001055EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8523AAA21EAE7F78001055EF /* Build configuration list for PBXNativeTarget "WatchOTests" */ = {
 			isa = XCConfigurationList;
@@ -788,6 +910,7 @@
 				8523AAA41EAE7F78001055EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8523AAA51EAE7F78001055EF /* Build configuration list for PBXNativeTarget "WatchOUITests" */ = {
 			isa = XCConfigurationList;
@@ -796,6 +919,7 @@
 				8523AAA71EAE7F78001055EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
