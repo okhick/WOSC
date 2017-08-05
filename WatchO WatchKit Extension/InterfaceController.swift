@@ -10,11 +10,28 @@ import WatchKit
 import Foundation
 import WatchConnectivity
 import CoreMotion
+import HealthKit
 
-//workoutVersion
-
-
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
+class
+InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionDelegate { //HKWorkoutSessionDelegate
+    
+    
+    //HEALTHKIT-----------------
+    @IBOutlet private weak var label: WKInterfaceLabel!
+    @IBOutlet private weak var deviceLabel : WKInterfaceLabel!
+    @IBOutlet private weak var heart: WKInterfaceImage!
+    @IBOutlet private weak var startStopButton : WKInterfaceButton!
+    
+    let healthStore = HKHealthStore()
+    
+    //State of the app - is the workout activated
+    var workoutActive = false
+    
+    // define the activity type and location
+    var workoutSession : HKWorkoutSession?
+    let heartRateUnit = HKUnit(from: "count/min")
+    var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
+    //END HEALTHKIT-------------
     
     
     var counter = 0.0
@@ -54,6 +71,26 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
         timer = Timer.scheduledTimer(timeInterval: 0.016, target: self, selector: #selector(InterfaceController.getDeviceMotion), userInfo: nil, repeats: true)
         
+        
+        //MORE HEALTHKIT
+        guard HKHealthStore.isHealthDataAvailable() == true else {
+            label.setText("not available")
+            return
+        }
+        
+        guard let quantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else {
+            print("ERROR")
+            return
+        }
+        
+        let dataTypes = Set(arrayLiteral: quantityType)
+        healthStore.requestAuthorization(toShare: nil, read: dataTypes) { (success, error) -> Void in
+            if success == false {
+                print("ERROR")
+            }
+        }
+        //END MORE HEALTHKIT
+ 
     }
     
     override func didDeactivate() {
@@ -63,6 +100,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         motionManager.stopDeviceMotionUpdates()
         
         super.didDeactivate()
+    
         
     }
     
@@ -83,7 +121,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             }
             
             index += 1
-            print(index)
+            //print(index)
             
             if index == 25 {
                 prepareData()
@@ -91,6 +129,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             }
         }
     }
+    
+    
     func prepareData () {
         
         chunkData["accX"] = chunkX
@@ -117,5 +157,105 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
     }
     
+
+    //------------------BELOW IS HEALTHKIT WORKAROUND------------------
+    //https://github.com/coolioxlr/watchOS-2-heartrate/blob/master/VimoHeartRate%20WatchKit%20App%20Extension/InterfaceController.swift
+    
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        switch toState {
+        case .running:
+            workoutDidStart(date: date as NSDate)
+        case .ended:
+            workoutDidEnd(date: date as NSDate)
+        default:
+            print("Unexpected state \(toState)")
+        }
+    }
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
+        // Do nothing for now
+        NSLog("Workout error: \(String(describing: error._userInfo))")
+    }
+    
+    func workoutDidStart(date : NSDate) {
+        if let query = createHeartRateStreamingQuery(workoutStartDate: date) {
+            healthStore.execute(query)
+        } else {
+            label.setText("cannot start")
+        }
+    }
+    
+    func workoutDidEnd(date : NSDate) {
+        if let query = createHeartRateStreamingQuery(workoutStartDate: date) {
+            healthStore.stop(query)
+            label.setText("---")
+        } else {
+            label.setText("cannot stop")
+        }
+    }
+    
+    // MARK: - Actions
+    @IBAction func startBtnTapped() {
+        if (self.workoutActive) {
+            //finish the current workout
+            self.workoutActive = false
+            self.startStopButton.setTitle("Start")
+            if let workout = self.workoutSession {
+                healthStore.end(workout)
+            }
+        } else {
+            //start a new workout
+            self.workoutActive = true
+            self.startStopButton.setTitle("Stop")
+            startWorkout()
+        }
+        
+    }
+    
+    func startWorkout() {
+        self.workoutSession = HKWorkoutSession(activityType: HKWorkoutActivityType.crossTraining, locationType: HKWorkoutSessionLocationType.indoor)
+        self.workoutSession?.delegate = self
+        healthStore.start(self.workoutSession!)
+    }
+    
+    func createHeartRateStreamingQuery(workoutStartDate: NSDate) -> HKQuery? {
+        // adding predicate will not work
+        // let predicate = HKQuery.predicateForSamplesWithStartDate(workoutStartDate, endDate: nil, options: HKQueryOptions.None)
+        
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else { return nil }
+        
+        let heartRateQuery = HKAnchoredObjectQuery(type: quantityType, predicate: nil, anchor: anchor, limit: Int(HKObjectQueryNoLimit)) { (query, sampleObjects, deletedObjects, newAnchor, error) -> Void in
+            guard let newAnchor = newAnchor else {return}
+            self.anchor = newAnchor
+            self.updateHeartRate(samples: sampleObjects)
+        }
+        
+        heartRateQuery.updateHandler = {(query, samples, deleteObjects, newAnchor, error) -> Void in
+            self.anchor = newAnchor!
+            self.updateHeartRate(samples: samples)
+        }
+        return heartRateQuery
+    }
+    
+    func updateHeartRate(samples: [HKSample]?) {
+        guard let heartRateSamples = samples as? [HKQuantitySample] else {return}
+        
+        DispatchQueue.main.async() {
+            guard let sample = heartRateSamples.first else{return}
+            let value = sample.quantity.doubleValue(for: self.heartRateUnit)
+            self.label.setText(String(UInt16(value)))
+            
+            // retrieve source from sample
+            let name = sample.sourceRevision.source.name
+            self.updateDeviceName(deviceName: name)
+            //self.animateHeart()
+        }
+    }
+    
+    func updateDeviceName(deviceName: String) {
+        deviceLabel.setText(deviceName)
+    }
+
 }
 
