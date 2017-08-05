@@ -29,8 +29,8 @@ InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionD
     
     // define the activity type and location
     var workoutSession : HKWorkoutSession?
-    let heartRateUnit = HKUnit(from: "count/min")
-    var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
+    //let heartRateUnit = HKUnit(from: "count/min")
+    //var anchor = HKQueryAnchor(fromValue: Int(HKAnchoredObjectQueryNoAnchor))
     //END HEALTHKIT-------------
     
     
@@ -74,12 +74,12 @@ InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionD
         
         //MORE HEALTHKIT
         guard HKHealthStore.isHealthDataAvailable() == true else {
-            label.setText("not available")
+            //label.setText("not available")
             return
         }
         
         guard let quantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate) else {
-            print("ERROR")
+            //print("ERROR")
             return
         }
         
@@ -163,21 +163,21 @@ InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionD
     
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
-        switch toState {
-        case .running:
-            workoutDidStart(date: date as NSDate)
-        case .ended:
-            workoutDidEnd(date: date as NSDate)
-        default:
-            print("Unexpected state \(toState)")
-        }
+        //switch toState {
+        //case .running:
+        //    workoutDidStart(date: date as NSDate)
+        //case .ended:
+        //    workoutDidEnd(date: date as NSDate)
+        //default:
+        //    print("Unexpected state \(toState)")
+        //}
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
         // Do nothing for now
         NSLog("Workout error: \(String(describing: error._userInfo))")
     }
-    
+    /*
     func workoutDidStart(date : NSDate) {
         if let query = createHeartRateStreamingQuery(workoutStartDate: date) {
             healthStore.execute(query)
@@ -187,14 +187,12 @@ InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionD
     }
     
     func workoutDidEnd(date : NSDate) {
-        if let query = createHeartRateStreamingQuery(workoutStartDate: date) {
-            healthStore.stop(query)
             label.setText("---")
-        } else {
+         else {
             label.setText("cannot stop")
         }
     }
-    
+    */
     // MARK: - Actions
     @IBAction func startBtnTapped() {
         if (self.workoutActive) {
@@ -214,11 +212,11 @@ InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionD
     }
     
     func startWorkout() {
-        self.workoutSession = HKWorkoutSession(activityType: HKWorkoutActivityType.crossTraining, locationType: HKWorkoutSessionLocationType.indoor)
+        self.workoutSession = HKWorkoutSession(activityType: HKWorkoutActivityType.walking, locationType: HKWorkoutSessionLocationType.indoor)
         self.workoutSession?.delegate = self
         healthStore.start(self.workoutSession!)
     }
-    
+    /*
     func createHeartRateStreamingQuery(workoutStartDate: NSDate) -> HKQuery? {
         // adding predicate will not work
         // let predicate = HKQuery.predicateForSamplesWithStartDate(workoutStartDate, endDate: nil, options: HKQueryOptions.None)
@@ -256,6 +254,6 @@ InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate, WCSessionD
     func updateDeviceName(deviceName: String) {
         deviceLabel.setText(deviceName)
     }
-
+*/
 }
 
