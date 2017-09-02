@@ -37,6 +37,7 @@
 		8524F39B1F2E84E700718D73 /* NSDate+F53OSCTimeTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F38A1F2E84E700718D73 /* NSDate+F53OSCTimeTag.m */; };
 		8524F39C1F2E84E700718D73 /* NSNumber+F53OSCNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F38C1F2E84E700718D73 /* NSNumber+F53OSCNumber.m */; };
 		8524F39D1F2E84E700718D73 /* NSString+F53OSCString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8524F38E1F2E84E700718D73 /* NSString+F53OSCString.m */; };
+		857377421F3647BB00955BC8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857377411F3647BB00955BC8 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,8 @@
 		8524F38C1F2E84E700718D73 /* NSNumber+F53OSCNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+F53OSCNumber.m"; path = "F53OSC/NSNumber+F53OSCNumber.m"; sourceTree = "<group>"; };
 		8524F38D1F2E84E700718D73 /* NSString+F53OSCString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+F53OSCString.h"; path = "F53OSC/NSString+F53OSCString.h"; sourceTree = "<group>"; };
 		8524F38E1F2E84E700718D73 /* NSString+F53OSCString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+F53OSCString.m"; path = "F53OSC/NSString+F53OSCString.m"; sourceTree = "<group>"; };
+		857377401F3647BB00955BC8 /* WatchO WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchO WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		857377411F3647BB00955BC8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				857377421F3647BB00955BC8 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +202,7 @@
 				8523AA891EAE7F78001055EF /* WatchO WatchKit Extension */,
 				8523AA4F1EAE7F78001055EF /* Products */,
 				8523AADB1EAE8351001055EF /* WatchO-Bridging-Header.h */,
+				8573773D1F36311D00955BC8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +262,7 @@
 		8523AA891EAE7F78001055EF /* WatchO WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				857377401F3647BB00955BC8 /* WatchO WatchKit Extension.entitlements */,
 				8523AA8C1EAE7F78001055EF /* InterfaceController.swift */,
 				8523AA8E1EAE7F78001055EF /* ExtensionDelegate.swift */,
 				8523AA901EAE7F78001055EF /* NotificationController.swift */,
@@ -312,6 +318,14 @@
 				8524F38E1F2E84E700718D73 /* NSString+F53OSCString.m */,
 			);
 			name = F53OSC;
+			sourceTree = "<group>";
+		};
+		8573773D1F36311D00955BC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				857377411F3647BB00955BC8 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +435,14 @@
 						DevelopmentTeam = D8BKLXS4Z5;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.HealthKit = {
+								enabled = 0;
+							};
+						};
 					};
 					8523AA611EAE7F78001055EF = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -441,6 +463,14 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = D8BKLXS4Z5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 1;
+							};
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -713,6 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchO WatchKit Extension/WatchO WatchKit Extension.entitlements";
 				DEVELOPMENT_TEAM = D8BKLXS4Z5;
 				INFOPLIST_FILE = "WatchO WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -730,6 +761,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "WatchO WatchKit Extension/WatchO WatchKit Extension.entitlements";
 				DEVELOPMENT_TEAM = D8BKLXS4Z5;
 				INFOPLIST_FILE = "WatchO WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
