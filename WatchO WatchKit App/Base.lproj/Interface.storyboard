@@ -16,13 +16,12 @@
                     <items>
                         <button width="1" height="80" alignment="left" title="START OR STOP" id="ACc-dQ-WqZ">
                             <connections>
-                                <action selector="startBtnTapped" destination="AgC-eL-Hgc" id="rVC-la-A9c"/>
+                                <action selector="beginWorkout" destination="AgC-eL-Hgc" id="Ib4-Ei-1JS"/>
                             </connections>
                         </button>
-                        <label width="136" alignment="left" text="Info" textAlignment="center" id="rea-SB-Pj1"/>
                     </items>
                     <connections>
-                        <outlet property="startStopButton" destination="ACc-dQ-WqZ" id="dwC-D5-ndH"/>
+                        <outlet property="workoutLabel" destination="ACc-dQ-WqZ" id="8Bd-6e-EAi"/>
                     </connections>
                 </controller>
             </objects>
